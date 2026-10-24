@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Disabled People's Lifeline — accessible communication, disability awareness and inclusion.">
+<title>Disabled People's Lifeline</title>
+
+<style>
+:root {
+  --navy: #102d40;
+  --teal: #087f70;
+  --mint: #d9f7e9;
+  --paper: #f6faf9;
+  --text: #142b3b;
+  --muted: #526778;
+  --white: #ffffff;
+  --border: #dce7e5;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--text);
+  line-height: 1.7;
+}
+header {
+  background: var(--navy);
+  color: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+header h2 { margin: 0; }
+nav { display: flex; gap: 18px; flex-wrap: wrap; }
+nav a { color: white; text-decoration: none; font-weight: bold; }
+nav a:hover { color: var(--mint); }
+section { padding: 60px 7%; }
+.hero {
+  background: linear-gradient(135deg, #d9f7e9, #eff7f4);
+  text-align: center;
+  padding: 85px 7%;
+}
+.hero h1 { font-size: clamp(2.3rem, 5vw, 4rem); line-height: 1.15; }
+.hero p { max-width: 700px; margin: 20px auto; color: var(--muted); }
+.button {
+  display: inline-block;
+  background: var(--teal);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.button:hover { background: #06695e; }
+h2.section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.intro { color: var(--muted); max-width: 800px; }
+.need-area {
+  background: var(--navy);
+  color: white;
+  border-radius: 22px;
+  padding: 28px;
+}
+.need-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin-top: 25px;
+}
+.need-btn {
+  background: white;
+  color: var(--text);
+  border: 3px solid transparent;
+  border-radius: 15px;
+  padding: 20px 12px;
+  min-height: 130px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.need-btn:hover, .need-btn:focus {
+  border-color: #48c9a5;
+  transform: translateY(-2px);
+}
+.emoji { display: block; font-size: 2rem; margin-bottom: 8px; }
+#needStatus {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #e3f7ee;
+  color: #154f41;
+  min-height: 50px;
+}
+.tools { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+.tools button {
+  padding: 10px 15px;
+  border-radius: 9px;
+  border: 1px solid #7795a6;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+}
+.card h3 { color: var(--teal); margin-top: 0; }
+.card p { color: var(--muted); }
+.search {
+  width: 100%;
+  max-width: 650px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 1rem;
+}
+.notice {
+  background: #eaf7f1;
+  border-left: 4px solid var(--teal);
+  padding: 16px;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+footer {
+  background: var(--navy);
+  color: white;
+  padding: 35px 7%;
+  text-align: center;
+}
+footer p { color: #d2e2e9; }
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 3px solid #e5a62b;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  header { padding: 18px 5%; }
+  section { padding: 42px 5%; }
+  .hero { padding: 60px 5%; }
+  .need-area { padding: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>✳ Disabled People's Lifeline</h2>
+  <nav aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#needs">My Needs</a>
+    <a href="#disabilities">Learn</a>
+    <a href="#respect">Inclusion</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <h1>Every Voice Matters.</h1>
+  <p>
+    A more inclusive world begins with understanding.
+    This website helps people communicate their needs and learn
+    about different disabilities with dignity and respect.
+  </p>
+  <a class="button" href="#needs">Explore Communication Buttons</a>
+  <a class="button" href="#disabilities">Learn About Disabilities</a>
+</section>
+
+<section id="needs">
+  <div class="need-area">
+    <h2>My Needs — Tap to Speak</h2>
+    <p>Press any button to speak the message aloud. Make sure your device volume is on.</p>
+
+    <div class="need-grid">
+      <button class="need-btn" data-say="I need water, please.">
+        <span class="emoji">💧</span>I need water
+      </button>
+
+      <button class="need-btn" data-say="I am hungry. Please give me something to eat.">
+        <span class="emoji">🍎</span>I am hungry
+      </button>
+
+      <button class="need-btn" data-say="I need help, please.">
+        <span class="emoji">🆘</span>I need help
+      </button>
+
+      <button class="need-btn" data-say="I want to use the toilet.">
+        <span class="emoji">🚻</span>I need the toilet
+      </button>
+
+      <button class="need-btn" data-say="I am feeling uncomfortable.">
+        <span class="emoji">😟</span>I feel uncomfortable
+      </button>
+
+      <button class="need-btn" data-say="I am in pain. Please help me.">
+        <span class="emoji">🩹</span>I am in pain
+      </button>
+
+      <button class="need-btn" data-say="I didn't understand. Please explain it again slowly.">
+        <span class="emoji">💬</span>I didn't understand — please explain
+      </button>
+
+      <button class="need-btn" data-say="I need more, please.">
+        <span class="emoji">➕</span>I need more
+      </button>
+
+      <button class="need-btn" data-say="I want to sleep. Please help me get comfortable.">
+        <span class="emoji">🌙</span>I want to sleep
+      </button>
+
+      <button class="need-btn" data-say="I want to take a bath. Please help me.">
+        <span class="emoji">🛁</span>I want to bathe
+      </button>
+
+      <button class="need-btn" data-say="Please give me some time.">
+        <span class="emoji">⏳</span>I need more time
+      </button>
+
+      <button class="need-btn" data-say="Please speak slowly.">
+        <span class="emoji">🐢</span>Please speak slowly
+      </button>
+
+      <button class="need-btn" data-say="I want to go outside.">
+        <span class="emoji">🌳</span>I want to go outside
+      </button>
+
+      <button class="need-btn" data-say="I want to sit down, please.">
+        <span class="emoji">🪑</span>I want to sit
+      </button>
+
+      <button class="need-btn" data-say="I would like some quiet, please.">
+        <span class="emoji">🤫</span>I need quiet
+      </button>
+
+      <button class="need-btn" data-say="I am happy!">
+        <span class="emoji">😊</span>I am happy
+      </button>
+
+      <button class="need-btn" data-say="I want to stop now, please.">
+        <span class="emoji">✋</span>Please stop
+      </button>
+
+      <button class="need-btn" data-say="Please call my caregiver.">
+        <span class="emoji">📞</span>Call my caregiver
+      </button>
+    </div>
+
+    <div id="needStatus" role="status" aria-live="polite">
+      Choose a button to hear your message.
+    </div>
+
+    <div class="tools">
+      <button type="button" id="repeatBtn">🔁 Repeat message</button>
+      <button type="button" id="stopBtn">⏹ Stop speaking</button>
+      <button type="button" id="languageBtn">🌐 Switch to Hindi</button>
+    </div>
+  </div>
+</section>
+
+<section id="disabilities">
+  <h2 class="section-title">Understanding Different Disabilities</h2>
+  <p class="intro">
+    Disabilities affect people in different ways. A person may need
+    accessibility tools, communication support, extra time or help with
+    everyday activities. Every person is unique; ask what support they prefer.
+  </p>
+
+  <input class="search" id="disabilitySearch" type="search"
+         placeholder="Search disabilities..." aria-label="Search disabilities">
+
+  <div class="cards" id="disabilityCards">
+
+    <article class="card">
+      <h3>1. Locomotor Disability</h3>
+      <p>May affect movement, balance or use of limbs. Some people use wheelchairs, walkers, crutches or other aids.</p>
+      <p><strong>Helpful support:</strong> Keep pathways clear, provide ramps and ask before assisting with mobility equipment.</p>
+    </article>
+
+    <article class="card">
+      <h3>2. Visual Impairment</h3>
+      <p>Includes blindness and low vision. People may use canes, screen readers, magnifiers or Braille.</p>
+      <p><strong>Helpful support:</strong> Introduce yourself, describe important surroundings and ask before guiding someone.</p>
+    </article>
+
+    <article class="card">
+      <h3>3. Hearing Impairment</h3>
+      <p>Includes deafness and difficulty hearing. People may communicate through sign language, speech, writing or hearing devices.</p>
+      <p><strong>Helpful support:</strong> Face the person, keep your face visible and use their preferred communication method.</p>
+    </article>
+
+    <article class="card">
+      <h3>4. Speech and Language Disabilities</h3>
+      <p>May affect speaking, understanding language or expressing ideas. Some people use picture boards or communication devices.</p>
+      <p><strong>Helpful support:</strong> Be patient, listen without interrupting and give the person enough time to respond.</p>
+    </article>
+
+    <article class="card">
+      <h3>5. Intellectual Disability</h3>
+      <p>Can affect learning, reasoning and everyday adaptive skills. Support needs vary from person to person.</p>
+      <p><strong>Helpful support:</strong> Use clear language, explain one step at a time and encourage independence.</p>
+    </article>
+
+    <article class="card">
+      <h3>6. Autism Spectrum Disorder</h3>
+      <p>Can affect social communication, sensory processing, routines and interests. Autistic people have varied strengths and support needs.</p>
+      <p><strong>Helpful support:</strong> Respect sensory needs, explain changes clearly and do not assume everyone communicates alike.</p>
+    </article>
+
+    <article class="card">
+      <h3>7. Specific Learning Disabilities</h3>
+      <p>May affect reading, writing or mathematics, including dyslexia, dysgraphia and dyscalculia.</p>
+      <p><strong>Helpful support:</strong> Offer accessible learning materials, extra time where appropriate and different ways to practise.</p>
+    </article>
+
+    <article class="card">
+      <h3>8. Cerebral Palsy</h3>
+      <p>A group of conditions affecting movement, posture or coordination. Some people may also have speech or other support needs.</p>
+      <p><strong>Helpful support:</strong> Allow enough time for movement and communication, and speak directly to the person.</p>
+    </article>
+
+    <article class="card">
+      <h3>9. Multiple Sclerosis</h3>
+      <p>A condition affecting the central nervous system. It may cause fatigue, mobility changes, vision problems or other symptoms.</p>
+      <p><strong>Helpful support:</strong> Respect rest needs and avoid assuming that someone's abilities are the same every day.</p>
+    </article>
+
+    <article class="card">
+      <h3>10. Chronic Neurological Conditions</h3>
+      <p>Some neurological conditions can affect movement, memory, sensation or daily activities in different ways.</p>
+      <p><strong>Helpful support:</strong> Ask what assistance is useful and respect the person's choices and privacy.</p>
+    </article>
+
+    <article class="card">
+      <h3>11. Muscular Dystrophy</h3>
+      <p>A group of genetic conditions that can cause muscle weakness. The effects and progression differ among individuals.</p>
+      <p><strong>Helpful support:</strong> Make spaces accessible and do not move mobility equipment without permission.</p>
+    </article>
+
+    <article class="card">
+      <h3>12. Chronic Health Conditions</h3>
+      <p>Long-term health conditions may affect energy, stamina or daily participation. Not every condition is visible.</p>
+      <p><strong>Helpful support:</strong> Believe people when they describe their needs and avoid making assumptions based on appearance.</p>
+    </article>
+
+    <article class="card">
+      <h3>13. Mental Illness</h3>
+      <p>Mental health conditions can affect emotions, thinking, mood or everyday life. They are not a reason to stigmatise someone.</p>
+      <p><strong>Helpful support:</strong> Treat the person respectfully, listen without judgement and encourage appropriate support when wanted.</p>
+    </article>
+
+    <article class="card">
+      <h3>14. Speech-Related Communication Needs</h3>
+      <p>Some people cannot rely on speech to communicate. They may use gestures, symbols, text or speech-generating technology.</p>
+      <p><strong>Helpful support:</strong> Keep their communication tools available and give them time to express themselves.</p>
+    </article>
+
+    <article class="card">
+      <h3>15. Deafblindness</h3>
+      <p>A combined hearing and vision disability. People use different communication and mobility methods depending on their needs.</p>
+      <p><strong>Helpful support:</strong> Ask how to communicate and how the person prefers to be guided.</p>
+    </article>
+
+    <article class="card">
+      <h3>16. Thalassemia</h3>
+      <p>An inherited blood disorder that affects haemoglobin. Its effects and treatment needs vary by person.</p>
+      <p><strong>Helpful support:</strong> Respect health-related needs and never make assumptions about what someone can do.</p>
+    </article>
+
+    <article class="card">
+      <h3>17. Haemophilia</h3>
+      <p>An inherited condition in which blood does not clot normally. People may need medical care to manage bleeding risks.</p>
+      <p><strong>Helpful support:</strong> Respect medical advice and follow appropriate emergency guidance if an injury occurs.</p>
+    </article>
+
+    <article class="card">
+      <h3>18. Sickle Cell Disease</h3>
+      <p>An inherited blood condition that can cause pain and other complications. Experiences vary among individuals.</p>
+      <p><strong>Helpful support:</strong> Take reported symptoms seriously and respect the person's care plan and privacy.</p>
+    </article>
+
+    <article class="card">
+      <h3>19. Multiple Disabilities</h3>
+      <p>A person may have more than one disability and may need a combination of communication, mobility or learning supports.</p>
+      <p><strong>Helpful support:</strong> Ask the person or their chosen supporter what works best for them.</p>
+    </article>
+
+    <article class="card">
+      <h3>20. Acid Attack Survivors</h3>
+      <p>Survivors may experience physical injuries, vision changes or scarring and may need accessibility or social support.</p>
+      <p><strong>Helpful support:</strong> Respect privacy, avoid intrusive questions and focus on the person's preferences and abilities.</p>
+    </article>
+
+    <article class="card">
+      <h3>21. Parkinson's Disease</h3>
+      <p>A neurological condition that may affect movement, balance, speech and other functions. Symptoms vary between people.</p>
+      <p><strong>Helpful support:</strong> Allow time for movement and communication, and ask before offering physical assistance.</p>
+    </article>
+
+  </div>
+
+  <div class="notice">
+    <strong>Important:</strong> This is an educational overview, not a diagnostic tool.
+    India's Rights of Persons with Disabilities Act, 2016 recognises 21 specified
+    disabilities. This page is a simplified introduction and is not a substitute
+    for the Act or official guidance. Some descriptions above are educational
+    examples rather than the exact legal category names.
+  </div>
+</section>
+
+<section id="respect">
+  <h2 class="section-title">How to Be Respectful and Inclusive</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>Ask, Don't Assume</h3>
+      <p>Ask whether someone wants help, and respect their answer. People know their own needs best.</p>
+    </article>
+    <article class="card">
+      <h3>Communicate Patiently</h3>
+      <p>Give people time to respond. Speak directly to them and use their preferred communication method.</p>
+    </article>
+    <article class="card">
+      <h3>Make Spaces Accessible</h3>
+      <p>Keep paths clear, provide readable information and support inclusive participation at school and in public.</p>
+    </article>
+    <article class="card">
+      <h3>Respect Privacy</h3>
+      <p>Do not ask intrusive questions about someone's medical history or share personal information without permission.</p>
+    </article>
+    <article class="card">
+      <h3>Include Everyone</h3>
+      <p>Make decisions with disabled people, not just about them. Include their ideas and preferences.</p>
+    </article>
+    <article class="card">
+      <h3>Recognise Individuality</h3>
+      <p>A disability does not define an entire person. Everyone has preferences, skills, relationships and goals.</p>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <h2>Disabled People's Lifeline</h2>
+  <p>Access · Dignity · Opportunity</p>
+  <p>A student project promoting communication, understanding and inclusion.</p>
+  <p>This website is not a government service, medical service or emergency service.</p>
+  <p>&copy; <span id="year"></span> Disabled People's Lifeline</p>
+</footer>
+
+<script>
+/* Text-to-speech for communication buttons */
+const statusBox = document.getElementById("needStatus");
+let lastMessage = "";
+let language = "en-IN";
+
+function speak(message) {
+  if (!("speechSynthesis" in window)) {
+    statusBox.textContent =
+      "Speech is not supported in this browser. Try the latest version of Chrome or Edge.";
+    return;
+  }
+
+  lastMessage = message;
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(message);
+  utterance.lang = language;
+  utterance.rate = 0.9;
+
+  utterance.onstart = () => {
+    statusBox.textContent = "Speaking: " + message;
+  };
+
+  utterance.onend = () => {
+    statusBox.textContent = "Message spoken. You can choose another button.";
+  };
+
+  utterance.onerror = () => {
+    statusBox.textContent =
+      "Voice playback failed. Check the device volume and browser settings.";
+  };
+
+  window.speechSynthesis.speak(utterance);
+}
+
+document.querySelectorAll(".need-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    speak(button.dataset.say);
+  });
+});
+
+document.getElementById("repeatBtn").addEventListener("click", () => {
+  if (lastMessage) {
+    speak(lastMessage);
+  } else {
+    statusBox.textContent = "Choose a message first.";
+  }
+});
+
+document.getElementById("stopBtn").addEventListener("click", () => {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+  statusBox.textContent = "Speech stopped.";
+});
+
+document.getElementById("languageBtn").addEventListener("click", event => {
+  language = language === "en-IN" ? "hi-IN" : "en-IN";
+  event.target.textContent =
+    language === "hi-IN" ? "🌐 Switch to English" : "🌐 Switch to Hindi";
+
+  statusBox.textContent = language === "hi-IN"
+    ? "Hindi voice selected. Some devices may not have a Hindi voice installed."
+    : "English voice selected.";
+});
+
+/* Search disability information */
+const searchInput = document.getElementById("disabilitySearch");
+const cards = [...document.querySelectorAll("#disabilityCards .card")];
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase().trim();
+
+  cards.forEach(card => {
+    card.hidden = !card.innerText.toLowerCase().includes(query);
+  });
+});
+
+/* Current year in the footer */
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
